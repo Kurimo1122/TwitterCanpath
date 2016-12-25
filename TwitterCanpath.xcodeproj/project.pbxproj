@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CC49549AE63A6B85C9D5D1A /* Pods_TwitterCanpath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7141FCAD1F7338E2F86E3F37 /* Pods_TwitterCanpath.framework */; };
 		78BCB95A1E1036C300164F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCB9591E1036C300164F8E /* AppDelegate.swift */; };
 		78BCB95C1E1036C300164F8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCB95B1E1036C300164F8E /* ViewController.swift */; };
 		78BCB95F1E1036C300164F8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BCB95D1E1036C300164F8E /* Main.storyboard */; };
 		78BCB9611E1036C300164F8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BCB9601E1036C300164F8E /* Assets.xcassets */; };
 		78BCB9641E1036C300164F8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BCB9621E1036C300164F8E /* LaunchScreen.storyboard */; };
+		78BCB96C1E10382300164F8E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78BCB96B1E10382300164F8E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E439FD010368F54E73C8BF7 /* Pods-TwitterCanpath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterCanpath.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterCanpath/Pods-TwitterCanpath.release.xcconfig"; sourceTree = "<group>"; };
+		7141FCAD1F7338E2F86E3F37 /* Pods_TwitterCanpath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterCanpath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BCB9561E1036C300164F8E /* TwitterCanpath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterCanpath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BCB9591E1036C300164F8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BCB95B1E1036C300164F8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,8 @@
 		78BCB9601E1036C300164F8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78BCB9631E1036C300164F8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78BCB9651E1036C300164F8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78BCB96B1E10382300164F8E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		79C3AE142786DF2BF1B98B66 /* Pods-TwitterCanpath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterCanpath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterCanpath/Pods-TwitterCanpath.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CC49549AE63A6B85C9D5D1A /* Pods_TwitterCanpath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				78BCB9581E1036C300164F8E /* TwitterCanpath */,
 				78BCB9571E1036C300164F8E /* Products */,
+				79E664DAFFC2BE855C630E79 /* Pods */,
+				C795EBCAA1BDCFE756C567B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +69,26 @@
 				78BCB9601E1036C300164F8E /* Assets.xcassets */,
 				78BCB9621E1036C300164F8E /* LaunchScreen.storyboard */,
 				78BCB9651E1036C300164F8E /* Info.plist */,
+				78BCB96B1E10382300164F8E /* GoogleService-Info.plist */,
 			);
 			path = TwitterCanpath;
+			sourceTree = "<group>";
+		};
+		79E664DAFFC2BE855C630E79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79C3AE142786DF2BF1B98B66 /* Pods-TwitterCanpath.debug.xcconfig */,
+				6E439FD010368F54E73C8BF7 /* Pods-TwitterCanpath.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C795EBCAA1BDCFE756C567B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7141FCAD1F7338E2F86E3F37 /* Pods_TwitterCanpath.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78BCB9681E1036C300164F8E /* Build configuration list for PBXNativeTarget "TwitterCanpath" */;
 			buildPhases = (
+				B9BDD0E7F840E8733154FC6B /* [CP] Check Pods Manifest.lock */,
 				78BCB9521E1036C300164F8E /* Sources */,
 				78BCB9531E1036C300164F8E /* Frameworks */,
 				78BCB9541E1036C300164F8E /* Resources */,
+				683F1292014E01C671EEDF48 /* [CP] Embed Pods Frameworks */,
+				D76DAA586352DCB21878F192 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,12 +155,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				78BCB9641E1036C300164F8E /* LaunchScreen.storyboard in Resources */,
+				78BCB96C1E10382300164F8E /* GoogleService-Info.plist in Resources */,
 				78BCB9611E1036C300164F8E /* Assets.xcassets in Resources */,
 				78BCB95F1E1036C300164F8E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		683F1292014E01C671EEDF48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitterCanpath/Pods-TwitterCanpath-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9BDD0E7F840E8733154FC6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D76DAA586352DCB21878F192 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TwitterCanpath/Pods-TwitterCanpath-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78BCB9521E1036C300164F8E /* Sources */ = {
@@ -259,6 +338,7 @@
 		};
 		78BCB9691E1036C300164F8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C3AE142786DF2BF1B98B66 /* Pods-TwitterCanpath.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2PUA57V75P;
@@ -272,6 +352,7 @@
 		};
 		78BCB96A1E1036C300164F8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E439FD010368F54E73C8BF7 /* Pods-TwitterCanpath.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2PUA57V75P;

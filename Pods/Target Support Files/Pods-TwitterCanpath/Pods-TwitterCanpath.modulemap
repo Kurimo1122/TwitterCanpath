@@ -1,0 +1,6 @@
+framework module Pods_TwitterCanpath {
+  umbrella header "Pods-TwitterCanpath-umbrella.h"
+
+  export *
+  module * { export * }
+}
