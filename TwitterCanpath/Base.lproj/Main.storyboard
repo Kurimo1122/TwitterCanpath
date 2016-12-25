@@ -77,6 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-298" y="-147"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="Q3k-Gd-WOc">
@@ -247,8 +248,8 @@
                                     <action selector="mailTextChanged:" destination="wpn-PV-Idt" eventType="editingChanged" id="3c8-ug-vUK"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o03-wB-8Cn">
-                                <rect key="frame" x="166" y="227" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o03-wB-8Cn">
+                                <rect key="frame" x="187.5" y="227" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -280,11 +281,112 @@
                         <outlet property="errorMessage" destination="o03-wB-8Cn" id="1LJ-IK-dMw"/>
                         <outlet property="password" destination="GF5-2H-QRv" id="NwE-xB-lOk"/>
                         <outlet property="signup" destination="4uN-X9-Sn5" id="X4g-8W-Tve"/>
+                        <segue destination="Fja-uf-vBb" kind="presentation" identifier="HandleViewSegue" id="2sX-Rl-NIf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxN-Q3-QlJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="-147"/>
+        </scene>
+        <!--Handler View Controller-->
+        <scene sceneID="fBP-CU-m1c">
+            <objects>
+                <viewController id="Fja-uf-vBb" customClass="HandlerViewController" customModule="TwitterCanpath" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="t2K-C5-3pc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ldw-rh-zH9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hRI-Is-73G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hz-Cb-klu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="X35-cF-Z3G">
+                                        <barButtonItem key="leftBarButtonItem" title="戻る" id="XRT-ag-xLf"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユニークなユーザーIDを設定して下さい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkT-3B-GDQ">
+                                <rect key="frame" x="16" y="287" width="328" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="例：twittercanpath1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvA-T6-xDg">
+                                <rect key="frame" x="23" y="318" width="330" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="330" id="0xb-ch-mnI"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="なまえ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rkt-bx-5Wj">
+                                <rect key="frame" x="16" y="242" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="335" id="Q9l-Qp-2OT"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-BV-LuZ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem id="caN-Nv-bSb"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6Nb-uG-3Cn"/>
+                                    <barButtonItem title="始めよう！" id="qFj-wV-CNI">
+                                        <connections>
+                                            <action selector="startTweetingTapped:" destination="Fja-uf-vBb" id="AKU-Dc-QRV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAa-4W-jrq">
+                                <rect key="frame" x="187.5" y="368" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プロフィール名を設定して下さい。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1v-zd-8G6">
+                                <rect key="frame" x="16" y="211" width="278" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nvA-T6-xDg" firstAttribute="centerY" secondItem="hRI-Is-73G" secondAttribute="centerY" id="4Oy-Qz-1At"/>
+                            <constraint firstItem="nvA-T6-xDg" firstAttribute="centerX" secondItem="hRI-Is-73G" secondAttribute="centerX" id="A2m-N4-oQp"/>
+                            <constraint firstItem="2Hz-Cb-klu" firstAttribute="leading" secondItem="hRI-Is-73G" secondAttribute="leading" id="Hdl-0q-sSa"/>
+                            <constraint firstItem="DAa-4W-jrq" firstAttribute="centerX" secondItem="hRI-Is-73G" secondAttribute="centerX" id="OD2-4h-cfE"/>
+                            <constraint firstAttribute="trailing" secondItem="2Hz-Cb-klu" secondAttribute="trailing" id="OYM-ps-KgJ"/>
+                            <constraint firstItem="Rkt-bx-5Wj" firstAttribute="top" secondItem="n1v-zd-8G6" secondAttribute="bottom" constant="10" id="Ozc-w9-iHF"/>
+                            <constraint firstItem="OkT-3B-GDQ" firstAttribute="leading" secondItem="n1v-zd-8G6" secondAttribute="leading" id="Rnb-cE-P2H"/>
+                            <constraint firstItem="Eg6-BV-LuZ" firstAttribute="leading" secondItem="hRI-Is-73G" secondAttribute="leading" id="VgI-gO-XLn"/>
+                            <constraint firstItem="nvA-T6-xDg" firstAttribute="top" secondItem="OkT-3B-GDQ" secondAttribute="bottom" constant="10" id="W8A-VO-VpC"/>
+                            <constraint firstItem="2Hz-Cb-klu" firstAttribute="top" secondItem="t2K-C5-3pc" secondAttribute="bottom" id="f4o-yy-750"/>
+                            <constraint firstItem="OkT-3B-GDQ" firstAttribute="leading" secondItem="hRI-Is-73G" secondAttribute="leadingMargin" id="fCM-WC-tmT"/>
+                            <constraint firstItem="OkT-3B-GDQ" firstAttribute="leading" secondItem="Rkt-bx-5Wj" secondAttribute="leading" id="fkc-Fx-kmL"/>
+                            <constraint firstItem="OkT-3B-GDQ" firstAttribute="top" secondItem="Rkt-bx-5Wj" secondAttribute="bottom" constant="15" id="fwV-0T-obX"/>
+                            <constraint firstItem="Ldw-rh-zH9" firstAttribute="top" secondItem="Eg6-BV-LuZ" secondAttribute="bottom" id="x4O-lx-xdi"/>
+                            <constraint firstItem="DAa-4W-jrq" firstAttribute="top" secondItem="nvA-T6-xDg" secondAttribute="bottom" constant="20" id="yts-C5-BNI"/>
+                            <constraint firstAttribute="trailing" secondItem="Eg6-BV-LuZ" secondAttribute="trailing" id="zyN-38-44k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="errorMessage" destination="DAa-4W-jrq" id="DJo-sS-fR1"/>
+                        <outlet property="fullName" destination="Rkt-bx-5Wj" id="vX2-vB-omQ"/>
+                        <outlet property="handleId" destination="nvA-T6-xDg" id="yd0-Ux-fhO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxE-Ko-JS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1559.2" y="-147.07646176911544"/>
         </scene>
     </scenes>
     <resources>
