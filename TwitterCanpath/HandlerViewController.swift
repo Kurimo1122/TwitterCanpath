@@ -51,13 +51,15 @@ class HandlerViewController: UIViewController {
                 self.rootRef.child("handles").child(self.handleId.text!.lowercased()).setValue(self.user!.uid)
                 
                 // send the user to home screen
-                
+                self.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
                 
             } else {
                 self.errorMessage.text! = "このIDはすでに使われています。"
             }
         }
-        
     }
-
+    
+    @IBAction func backTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
