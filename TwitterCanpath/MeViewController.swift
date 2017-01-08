@@ -122,4 +122,17 @@ class MeViewController: UIViewController {
         
     }
     
+    @IBAction func profilePictureTapped(_ sender: UITapGestureRecognizer) {
+        
+        // crate the action sheet
+        let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        let viewPicture = UIAlertAction(title: "View Picture", style: UIAlertActionStyle.default) { (action) in
+            
+            //ここから
+        }
+        
+    }
+    
+    
 }
