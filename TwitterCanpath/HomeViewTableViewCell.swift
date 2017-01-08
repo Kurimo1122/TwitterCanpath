@@ -27,6 +27,7 @@ public class HomeViewTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //public func configure(profilePic: String?, name: String, handle: String, tweet: String){
     public func configure(profilePic: String?, name: String, handle: String, tweet: String){
         
         self.tweet.text = tweet

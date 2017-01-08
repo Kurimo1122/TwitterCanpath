@@ -57,12 +57,18 @@ class NewTweetViewController: UIViewController, UITextViewDelegate, UITextFieldD
     @IBAction func tweetTapped(_ sender: Any) {
         
         if(newTweetTextView.text.characters.count > 0){
-            let key = databaseRef.child("tweets").childByAutoId().key
+            //let key = databaseRef.child("tweets").childByAutoId().key
             
-            let childUpdates = ["/tweets/\(self.loggedInUser!.uid)/(key)text": newTweetTextView.text,
-                                "/tweets/\(self.loggedInUser!.uid)/(key)timestamp": "\(NSDate().timeIntervalSince1970)"] as [String : Any]
+            //let childUpdates = ["/tweets/\(self.loggedInUser!.uid)/(key)text": newTweetTextView.text,
+            //                    "/tweets/\(self.loggedInUser!.uid)/(key)timestamp": "\(NSDate().timeIntervalSince1970)"] as [String : Any]
             
-            self.databaseRef.updateChildValues(childUpdates)
+            //let childUpdates = ["/tweets/\(self.loggedInUser!.uid)/(key)text": newTweetTextView.text,
+            //                    "/tweets/\(self.loggedInUser!.uid)/(key)timestamp": "\(NSDate().timeIntervalSince1970)"] as [String : Any]
+            
+            let tweet = ["text": newTweetTextView.text, "timestamp": NSNumber(value: Int(Date().timeIntervalSince1970))] as [String: Any]
+            
+            //self.databaseRef.updateChildValues(childUpdates)
+            self.databaseRef.child("tweets").child(self.loggedInUser!.uid).childByAutoId().setValue(tweet)
             
             dismiss(animated: true, completion: nil)
         }
