@@ -156,6 +156,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zku-ZB-0CN">
+                                <rect key="frame" x="156" y="227" width="62" height="30"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="login2Tapped:" destination="W5T-ry-67A" eventType="touchUpInside" id="Brk-Iu-OHr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -170,6 +177,7 @@
                             <constraint firstItem="x6v-6G-qSo" firstAttribute="leading" secondItem="stj-Lu-Frf" secondAttribute="leadingMargin" constant="10" id="KbC-As-lFx"/>
                             <constraint firstItem="YA9-hg-OJu" firstAttribute="leading" secondItem="stj-Lu-Frf" secondAttribute="leadingMargin" id="QW5-H4-0Ry"/>
                             <constraint firstItem="m1X-OI-g9h" firstAttribute="top" secondItem="Uzt-PE-G2W" secondAttribute="bottom" constant="10" id="cMk-x3-f0Y"/>
+                            <constraint firstItem="zku-ZB-0CN" firstAttribute="top" secondItem="4mh-wD-frj" secondAttribute="bottom" constant="37" id="cgQ-Y1-CfH"/>
                             <constraint firstItem="3ps-US-wfJ" firstAttribute="leading" secondItem="stj-Lu-Frf" secondAttribute="leading" id="eNK-x7-8vX"/>
                             <constraint firstItem="4mh-wD-frj" firstAttribute="leading" secondItem="x6v-6G-qSo" secondAttribute="leading" id="fgM-xf-wtu"/>
                             <constraint firstItem="gIX-CX-nAN" firstAttribute="top" secondItem="3ps-US-wfJ" secondAttribute="bottom" id="hhH-7H-zLl"/>
@@ -178,6 +186,7 @@
                             <constraint firstItem="m1X-OI-g9h" firstAttribute="leading" secondItem="stj-Lu-Frf" secondAttribute="leadingMargin" constant="10" id="rwf-NK-h27"/>
                             <constraint firstAttribute="trailingMargin" secondItem="x6v-6G-qSo" secondAttribute="trailing" constant="10" id="vby-RY-VC2"/>
                             <constraint firstItem="x6v-6G-qSo" firstAttribute="top" secondItem="m1X-OI-g9h" secondAttribute="bottom" constant="20" id="waN-nZ-Te7"/>
+                            <constraint firstItem="zku-ZB-0CN" firstAttribute="centerX" secondItem="stj-Lu-Frf" secondAttribute="centerX" id="xbC-0L-2sK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -694,7 +703,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QES-Ro-PuH">
                                 <rect key="frame" x="0.0" y="155" width="375" height="463"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="IAt-AU-18Y">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter-1" translatesAutoresizingMaskIntoConstraints="NO" id="IAt-AU-18Y">
                                         <rect key="frame" x="8" y="8" width="80" height="80"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -799,9 +808,22 @@
                                             <segue destination="3wk-CZ-U3Z" kind="embed" id="Jyb-t5-d50"/>
                                         </connections>
                                     </containerView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter" translatesAutoresizingMaskIntoConstraints="NO" id="8BE-BY-eGs">
+                                        <rect key="frame" x="178" y="51" width="129" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Tgu-A9-QSJ" appends="YES" id="vjI-4k-OfU"/>
+                                        </connections>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-ZY-cFp">
+                                        <rect key="frame" x="30" y="30" width="37" height="37"/>
+                                        <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="mcB-ZY-cFp" firstAttribute="centerY" secondItem="IAt-AU-18Y" secondAttribute="centerY" id="0FM-7e-R01"/>
                                     <constraint firstItem="8kb-bj-omQ" firstAttribute="width" secondItem="IAt-AU-18Y" secondAttribute="width" id="17I-eA-NdG"/>
                                     <constraint firstItem="0pu-6x-ySW" firstAttribute="trailing" secondItem="96J-1x-gWg" secondAttribute="trailing" id="52t-x6-fxW"/>
                                     <constraint firstItem="IUp-Ec-uhu" firstAttribute="top" secondItem="8kb-bj-omQ" secondAttribute="bottom" constant="1.5" id="5Wj-2U-vjG"/>
@@ -810,6 +832,7 @@
                                     <constraint firstItem="oQs-hs-e6Q" firstAttribute="top" secondItem="WFM-GU-72b" secondAttribute="bottom" constant="8" id="9rs-ZP-hu6"/>
                                     <constraint firstItem="8kb-bj-omQ" firstAttribute="centerX" secondItem="IAt-AU-18Y" secondAttribute="centerX" id="Das-1E-tyE"/>
                                     <constraint firstItem="oQs-hs-e6Q" firstAttribute="leading" secondItem="QES-Ro-PuH" secondAttribute="leading" id="EqB-GF-mOP"/>
+                                    <constraint firstItem="mcB-ZY-cFp" firstAttribute="centerX" secondItem="IAt-AU-18Y" secondAttribute="centerX" id="Ffo-jM-l6v"/>
                                     <constraint firstItem="Uzn-Mv-DDw" firstAttribute="leading" secondItem="QES-Ro-PuH" secondAttribute="leading" id="I2q-MR-mtY"/>
                                     <constraint firstItem="0pu-6x-ySW" firstAttribute="leading" secondItem="IAt-AU-18Y" secondAttribute="leading" id="JJJ-al-JHZ"/>
                                     <constraint firstItem="Rru-Uk-77R" firstAttribute="top" secondItem="0pu-6x-ySW" secondAttribute="bottom" constant="8" id="LPK-sk-1wb"/>
@@ -848,10 +871,13 @@
                     <connections>
                         <outlet property="about" destination="0pu-6x-ySW" id="bvj-ps-87s"/>
                         <outlet property="handle" destination="IUp-Ec-uhu" id="cW3-BA-C1v"/>
+                        <outlet property="imageLoader" destination="mcB-ZY-cFp" id="IsJ-7b-Qk4"/>
                         <outlet property="likesContainer" destination="ON0-Fz-h7f" id="xq4-eN-QUe"/>
                         <outlet property="mediaContainer" destination="oQs-hs-e6Q" id="0cZ-BC-YWa"/>
                         <outlet property="name" destination="8kb-bj-omQ" id="yqM-8N-N36"/>
+                        <outlet property="profileImage" destination="IAt-AU-18Y" id="alf-oW-dFr"/>
                         <outlet property="profilePicture" destination="IAt-AU-18Y" id="MnY-Dz-ONf"/>
+                        <outlet property="testRecognizer" destination="Tgu-A9-QSJ" id="DTA-O0-lp1"/>
                         <outlet property="tweetsContainer" destination="Uzn-Mv-DDw" id="bqP-XP-kbi"/>
                     </connections>
                 </viewController>
@@ -859,6 +885,11 @@
                 <tapGestureRecognizer id="8Aa-UP-56e">
                     <connections>
                         <action selector="profilePictureTapped:" destination="rQw-QE-lfg" id="brd-s4-Uvp"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Tgu-A9-QSJ">
+                    <connections>
+                        <action selector="testRecognizerTapped:" destination="rQw-QE-lfg" id="SRd-Mg-hR6"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -956,9 +987,10 @@
         <image name="settings" width="20" height="20"/>
         <image name="suits_wallpaper" width="1280" height="720"/>
         <image name="twitter" width="512" height="512"/>
+        <image name="twitter-1" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pws-re-O2n"/>
-        <segue reference="2sX-Rl-NIf"/>
+        <segue reference="Qau-Ji-LAa"/>
+        <segue reference="FDi-Zq-azX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -66,4 +66,28 @@ class LogInViewController: UIViewController {
             
         })
     }
+    
+    @IBAction func login2Tapped(_ sender: Any) {
+        FIRAuth.auth()?.signIn(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+            
+            if (error == nil)
+            {
+                self.rootRef.child("user_profiles").child((user?.uid)!).child("handle").observe(.value) { (snapshot: FIRDataSnapshot) in
+                    
+                    if(!snapshot.exists()){
+                        // user does not have a handle
+                        // send the user to the handleView
+                        
+                        self.performSegue(withIdentifier: "HandleViewSegue", sender: nil)
+                    } else {
+                        self.performSegue(withIdentifier: "HomeViewSegue", sender: nil)
+                    }
+                }
+            } else {
+                self.errorMessage.text = error?.localizedDescription
+            }
+            
+        })
+    }
+    
 }

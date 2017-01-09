@@ -4,6 +4,14 @@
 <dict>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>あなたのフォトライブラリへのアクセスを許可しますか？</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>あなたのカメラへのアクセスを許可しますか？</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
