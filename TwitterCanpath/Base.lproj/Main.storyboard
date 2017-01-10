@@ -958,10 +958,6 @@
                                             <segue destination="3wk-CZ-U3Z" kind="embed" id="Jyb-t5-d50"/>
                                         </connections>
                                     </containerView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mcB-ZY-cFp">
-                                        <rect key="frame" x="30" y="30" width="37" height="37"/>
-                                        <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フォロー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZF-Nd-Yw4">
                                         <rect key="frame" x="19" y="164" width="69.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -977,7 +973,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="mcB-ZY-cFp" firstAttribute="centerY" secondItem="IAt-AU-18Y" secondAttribute="centerY" id="0FM-7e-R01"/>
                                     <constraint firstItem="8kb-bj-omQ" firstAttribute="width" secondItem="IAt-AU-18Y" secondAttribute="width" id="17I-eA-NdG"/>
                                     <constraint firstItem="0pu-6x-ySW" firstAttribute="trailing" secondItem="96J-1x-gWg" secondAttribute="trailing" id="52t-x6-fxW"/>
                                     <constraint firstItem="IUp-Ec-uhu" firstAttribute="top" secondItem="8kb-bj-omQ" secondAttribute="bottom" constant="1.5" id="5Wj-2U-vjG"/>
@@ -986,7 +981,6 @@
                                     <constraint firstItem="oQs-hs-e6Q" firstAttribute="top" secondItem="WFM-GU-72b" secondAttribute="bottom" constant="8" id="9rs-ZP-hu6"/>
                                     <constraint firstItem="8kb-bj-omQ" firstAttribute="centerX" secondItem="IAt-AU-18Y" secondAttribute="centerX" id="Das-1E-tyE"/>
                                     <constraint firstItem="oQs-hs-e6Q" firstAttribute="leading" secondItem="QES-Ro-PuH" secondAttribute="leading" id="EqB-GF-mOP"/>
-                                    <constraint firstItem="mcB-ZY-cFp" firstAttribute="centerX" secondItem="IAt-AU-18Y" secondAttribute="centerX" id="Ffo-jM-l6v"/>
                                     <constraint firstItem="Uzn-Mv-DDw" firstAttribute="leading" secondItem="QES-Ro-PuH" secondAttribute="leading" id="I2q-MR-mtY"/>
                                     <constraint firstItem="0pu-6x-ySW" firstAttribute="leading" secondItem="IAt-AU-18Y" secondAttribute="leading" id="JJJ-al-JHZ"/>
                                     <constraint firstItem="78o-V3-DdS" firstAttribute="top" secondItem="0pu-6x-ySW" secondAttribute="bottom" constant="6" id="LKE-7g-IgL"/>
@@ -1032,7 +1026,6 @@
                         <outlet property="about" destination="0pu-6x-ySW" id="bvj-ps-87s"/>
                         <outlet property="folowingNum" destination="Rru-Uk-77R" id="lYF-0G-iPp"/>
                         <outlet property="handle" destination="IUp-Ec-uhu" id="cW3-BA-C1v"/>
-                        <outlet property="imageLoader" destination="mcB-ZY-cFp" id="IsJ-7b-Qk4"/>
                         <outlet property="likesContainer" destination="ON0-Fz-h7f" id="xq4-eN-QUe"/>
                         <outlet property="mediaContainer" destination="oQs-hs-e6Q" id="0cZ-BC-YWa"/>
                         <outlet property="name" destination="8kb-bj-omQ" id="yqM-8N-N36"/>
