@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
-class FollowUsersTableViewController: UITableViewController {
+class FollowUsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
+    
+    @IBOutlet var followUsersTableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
     
+    var usersArray = [NSDictionary?]()
+    var filteredUsers = [NSDictionary?]()
     
+    var databaseRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +28,18 @@ class FollowUsersTableViewController: UITableViewController {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+        databaseRef.child("user_profiles").queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
+            
+            self.usersArray.append(snapshot.value as? NSDictionary)
+            
+            //insert the rows
+            
+            self.followUsersTableView.insertRows(at: [IndexPath(row: self.usersArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,23 +56,39 @@ class FollowUsersTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredUsers.count
+        }
+        
+        return self.usersArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         // Configure the cell...
+        let user: NSDictionary?
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            
+            user = filteredUsers[indexPath.row]
+        } else {
+            user = self.usersArray[indexPath.row]
+        }
+        
+        cell.textLabel?.text = user?["name"] as? String
+        cell.detailTextLabel?.text = user?["handle"] as? String
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,5 +139,22 @@ class FollowUsersTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        //update the search results
+        filterContent(searchText: self.searchController.searchBar.text!)
+    }
+    
+    func filterContent(searchText: String){
+        
+        self.filteredUsers = self.usersArray.filter{ user in
+            
+            let username = user!["name"] as? String
+            
+            return(username?.lowercased().contains(searchText.lowercased()))!
+            
+        }
+        
+        tableView.reloadData()
+    }
 }

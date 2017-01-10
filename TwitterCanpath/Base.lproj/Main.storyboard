@@ -715,6 +715,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="followUsersTableView" destination="zVm-P6-RE5" id="khw-a7-wO5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wv0-8S-hl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
