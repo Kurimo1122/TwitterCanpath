@@ -19,6 +19,11 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var mediaContainer: UIView!
     @IBOutlet weak var likesContainer: UIView!
     
+    
+    @IBOutlet weak var folowingNum: UILabel!
+    @IBOutlet weak var FollowerNum: UILabel!
+    
+    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var handle: UILabel!
@@ -91,6 +96,18 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                 self.profilePicture.layer.masksToBounds = true
                 
                 self.profilePicture.sd_setImage(with: URL(string: databaseProfilePic))
+            }
+            
+            let snapshot = snapshot.value as! [String: AnyObject]
+            
+            if (snapshot["followersCount"] !== nil){
+                self.FollowerNum.text = (snapshot["followersCount"]! as AnyObject) as! String
+            }
+            
+            if (snapshot["followingCount"] !== nil){
+                print("Following Count -----------------------------")
+                print(snapshot["followingCount"])
+                self.folowingNum.text = "\(snapshot["followingCount"]!)"
             }
         }
     }
@@ -228,7 +245,7 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         profilePicture.image = image
         
-        self.imageLoader.startAnimating()
+        //self.imageLoader.startAnimating()
         
         
         if let imageData = UIImagePNGRepresentation(self.profilePicture.image!)! as Data?{
@@ -246,7 +263,7 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
                 }
             })
             
-            self.imageLoader.stopAnimating()
+            //self.imageLoader.stopAnimating()
         }
         self.dismiss(animated: true, completion: nil)
     }

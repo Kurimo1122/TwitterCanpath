@@ -169,4 +169,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func dismissFullScreenImage(sender: UITapGestureRecognizer){
         sender.view?.removeFromSuperview()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "FindUserSegue"){
+            let showFollowUsersTableViewController = segue.destination as! FollowUsersTableViewController
+            
+            showFollowUsersTableViewController.loggedInUser = self.loggedInUser as? FIRUser
+        }
+    }
 }

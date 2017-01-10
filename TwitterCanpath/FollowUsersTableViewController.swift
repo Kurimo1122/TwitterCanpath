@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 
 class FollowUsersTableViewController: UITableViewController, UISearchResultsUpdating {
     
@@ -17,6 +18,8 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
     
     var usersArray = [NSDictionary?]()
     var filteredUsers = [NSDictionary?]()
+    
+    var loggedInUser: FIRUser?
     
     var databaseRef = FIRDatabase.database().reference()
     
@@ -30,11 +33,22 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         
         databaseRef.child("user_profiles").queryOrdered(byChild: "name").observe(.childAdded, with: { (snapshot) in
             
-            self.usersArray.append(snapshot.value as? NSDictionary)
+            
+            let key = snapshot.key
+            
+            let snapshot = snapshot.value as? NSDictionary
+            snapshot?.setValue(key, forKey: "uid")
+            
+            if (key == self.loggedInUser?.uid){
+                print("same as logged in user")
+            } else {
+                self.usersArray.append(snapshot)
+                self.followUsersTableView.insertRows(at: [IndexPath(row: self.usersArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
+            }
             
             //insert the rows
             
-            self.followUsersTableView.insertRows(at: [IndexPath(row: self.usersArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
+            
             
         }) { (error) in
             print(error.localizedDescription)
@@ -156,5 +170,21 @@ class FollowUsersTableViewController: UITableViewController, UISearchResultsUpda
         }
         
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "ShowUser" {
+            let showUserProfileViewController = segue.destination as! UserProfileViewController
+            
+            showUserProfileViewController.loggedInUser = self.loggedInUser
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                
+                let user = usersArray[indexPath.row]
+                showUserProfileViewController.otherUser = user
+            }
+        }
+
     }
 }
