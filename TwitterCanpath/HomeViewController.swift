@@ -60,6 +60,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             })
         }
+        
+        self.tableView.estimatedRowHeight = 250
+        self.tableView.rowHeight = 200
+        //self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,6 +76,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return tweets.count
     }
     */
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count

@@ -13,8 +13,7 @@ public class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var handle: UILabel!
-    @IBOutlet weak var tweet: UITextField!
-    
+    @IBOutlet weak var tweet: UITextView!
     
     override public func awakeFromNib() {
         super.awakeFromNib()
