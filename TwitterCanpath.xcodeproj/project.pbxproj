@@ -91,12 +91,12 @@
 				788515EC1E1E656C00121631 /* NewTweetViewController.swift */,
 				788515EE1E1E778700121631 /* Tweet.swift */,
 				78DE81E01E22513300710F20 /* User.swift */,
+				78DE81E21E22715D00710F20 /* MeViewController.swift */,
 				78BCB95D1E1036C300164F8E /* Main.storyboard */,
 				78BCB9601E1036C300164F8E /* Assets.xcassets */,
 				78BCB9621E1036C300164F8E /* LaunchScreen.storyboard */,
 				78BCB9651E1036C300164F8E /* Info.plist */,
 				78BCB96B1E10382300164F8E /* GoogleService-Info.plist */,
-				78DE81E21E22715D00710F20 /* MeViewController.swift */,
 			);
 			path = TwitterCanpath;
 			sourceTree = "<group>";

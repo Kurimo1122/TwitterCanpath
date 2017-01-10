@@ -13,7 +13,7 @@ import FirebaseStorage
 
 import SDWebImage
 
-class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var tweetsContainer: UIView!
     @IBOutlet weak var mediaContainer: UIView!
@@ -250,4 +250,15 @@ class MeViewController: UIViewController, UIImagePickerControllerDelegate, UINav
         }
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func aboutDidEndEditing(_ sender: Any) {
+        
+        self.databaseRef.child("user_profiles").child(self.loggedInUser!.uid).child("about").setValue(self.about.text)
+    }
+    
 }
