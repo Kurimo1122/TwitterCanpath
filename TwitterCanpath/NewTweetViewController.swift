@@ -123,6 +123,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate, UITextFieldD
     
     
     @IBAction func didTapTweet(_ sender: Any) {
+        
         var imagesArray = [AnyObject?]()
         
         self.newTweetTextView.attributedText.enumerateAttribute(NSAttachmentAttributeName, in: NSMakeRange(0, self.newTweetTextView.text.characters.count), options: []) { (value, range, true) in
@@ -144,11 +145,17 @@ class NewTweetViewController: UIViewController, UITextViewDelegate, UITextFieldD
         let numImages = imagesArray.count
         
         let storageRef = FIRStorage.storage().reference()
+        
+        
         let pictureStrorageRef = storageRef.child("user_profiles").child(self.loggedInUser!.uid).child("media")
         
-        let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
+        
+        // below line occurs Index out of range error!!!
+        //let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
+        
         
         if (tweetLength > 0 && numImages > 0){
+            let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
             let uploadTask = pictureStrorageRef.put(lowResImageData!, metadata: nil, completion: { (metadata, error) in
                 
                 if (error == nil){
@@ -166,7 +173,11 @@ class NewTweetViewController: UIViewController, UITextViewDelegate, UITextFieldD
             
         } else if (tweetLength > 0) {
             
-            let tweet = ["text": newTweetTextView.text, "timestamp": NSNumber(value: Int(Date().timeIntervalSince1970))] as [String: Any]
+            print("--------------------------------------------------")
+            print("To find out the tweet exists")
+            print("--------------------------------------------------")
+            
+            let tweet = ["text": newTweetTextView.text, "timestamp": NSNumber(value: Int(Date().timeIntervalSince1970)), "picture": ""] as [String: Any]
             
             //self.databaseRef.updateChildValues(childUpdates)
             self.databaseRef.child("tweets").child(self.loggedInUser!.uid).childByAutoId().setValue(tweet)
@@ -174,7 +185,7 @@ class NewTweetViewController: UIViewController, UITextViewDelegate, UITextFieldD
             dismiss(animated: true, completion: nil)
             
         } else if (numImages > 0){
-            
+            let lowResImageData = UIImageJPEGRepresentation(imagesArray[0] as! UIImage, 0.50)
             let uploadTask = pictureStrorageRef.put(lowResImageData!, metadata: nil, completion: { (metadata, error) in
                 
                 if (error == nil){

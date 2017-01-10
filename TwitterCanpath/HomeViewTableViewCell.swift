@@ -14,6 +14,9 @@ public class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var handle: UILabel!
     @IBOutlet weak var tweet: UITextView!
+    @IBOutlet weak var tweetImage: UIImageView!
+    
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     override public func awakeFromNib() {
         super.awakeFromNib()

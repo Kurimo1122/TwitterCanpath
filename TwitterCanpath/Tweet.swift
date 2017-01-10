@@ -10,4 +10,5 @@ import Foundation
 
 class Tweet {
     var text = ""
+    var picture = ""
 }

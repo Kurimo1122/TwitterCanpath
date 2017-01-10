@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SDWebImage
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,6 +23,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var aivLoading: UIActivityIndicatorView!
     
     var tweets: [Tweet] = []
+    
+    var defaultImageViewHeightConstrant: CGFloat = 77
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +51,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 let tweet = Tweet()
                 tweet.text = (snapshot.value! as AnyObject)["text"] as! String
-
+                
+                print("--------------------------------------------")
+                print("blow line is the picture url")
+                print((snapshot.value! as AnyObject)["picture"])
+                print("--------------------------------------------")
+                
+                
+                if ((snapshot.value! as AnyObject)["picture"] as? String != nil) {
+                //if let picture = (snapshot.value! as AnyObject)["picture"]{
+                    print("picture is here!")
+                    let picture = (snapshot.value! as AnyObject)["picture"] as! String
+                    if picture == ""{
+                        tweet.picture = ""
+                    } else {
+                        tweet.picture = picture as! String
+                    }
+                } else {
+                    print("this tweet does not have picture!")
+                }
+                
                 self.tweets.append(tweet)
 
                 /*
@@ -89,9 +111,62 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         let tweet = tweets[(length - 1) - indexPath.row].text
         
+        
+        let imageTap = UITapGestureRecognizer(target: self, action: #selector(self.didTapMediaTweet(_:)))
+        
+        cell.tweetImage.addGestureRecognizer(imageTap)
+        
+        
+        print("--------------------------------------------")
+        print(tweets[(length - 1) - indexPath.row])
+        print("--------------------------------------------")
+        
+        if(tweets[(length - 1) - indexPath.row].picture == ""){
+            print("this is empty picture")
+            cell.tweetImage.isHidden = true
+            cell.imageViewHeightConstraint.constant = 0
+        } else {
+            print("this includes picture")
+            cell.tweetImage.isHidden = false
+            cell.imageViewHeightConstraint.constant = defaultImageViewHeightConstrant
+            
+            let picture = tweets[(length - 1) - indexPath.row].picture
+            
+            cell.tweetImage.layer.cornerRadius = 10
+            cell.tweetImage.layer.borderWidth = 3
+            cell.tweetImage.layer.borderColor = UIColor.white.cgColor
+            
+            cell.tweetImage.sd_setImage(with: URL(string: picture))
+            
+        }
+        
+        
         cell.configure(profilePic: nil, name: self.loggedInUserData.name, handle: self.loggedInUserData.handle, tweet: tweet)
         
         return cell
     }
     
+    @IBAction func didTapMediaTweet(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        
+        newImageView.frame = self.view.frame
+        
+        newImageView.backgroundColor = UIColor.black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage))
+        
+        //tap.delegate = self;
+        
+        newImageView.addGestureRecognizer(tap)
+        
+        self.view.addSubview(newImageView)
+    }
+    
+    func dismissFullScreenImage(sender: UITapGestureRecognizer){
+        sender.view?.removeFromSuperview()
+    }
 }

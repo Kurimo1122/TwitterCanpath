@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CC49549AE63A6B85C9D5D1A /* Pods_TwitterCanpath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7141FCAD1F7338E2F86E3F37 /* Pods_TwitterCanpath.framework */; };
+		782C1BF31E24FAC100EB8190 /* FollowUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782C1BF21E24FAC100EB8190 /* FollowUsersTableViewController.swift */; };
 		788515ED1E1E656C00121631 /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788515EC1E1E656C00121631 /* NewTweetViewController.swift */; };
 		788515EF1E1E778700121631 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788515EE1E1E778700121631 /* Tweet.swift */; };
 		78BCB95A1E1036C300164F8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BCB9591E1036C300164F8E /* AppDelegate.swift */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		6E439FD010368F54E73C8BF7 /* Pods-TwitterCanpath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterCanpath.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterCanpath/Pods-TwitterCanpath.release.xcconfig"; sourceTree = "<group>"; };
 		7141FCAD1F7338E2F86E3F37 /* Pods_TwitterCanpath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterCanpath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		782C1BED1E24EF3900EB8190 /* TwitterCanpath.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwitterCanpath.entitlements; sourceTree = "<group>"; };
+		782C1BF21E24FAC100EB8190 /* FollowUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowUsersTableViewController.swift; sourceTree = "<group>"; };
 		788515EC1E1E656C00121631 /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
 		788515EE1E1E778700121631 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		78BCB9561E1036C300164F8E /* TwitterCanpath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterCanpath.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,7 @@
 		78BCB9581E1036C300164F8E /* TwitterCanpath */ = {
 			isa = PBXGroup;
 			children = (
+				782C1BED1E24EF3900EB8190 /* TwitterCanpath.entitlements */,
 				78BCB9591E1036C300164F8E /* AppDelegate.swift */,
 				78BCB95B1E1036C300164F8E /* ViewController.swift */,
 				78BCB9731E1050C100164F8E /* HandlerViewController.swift */,
@@ -97,6 +101,7 @@
 				78BCB9621E1036C300164F8E /* LaunchScreen.storyboard */,
 				78BCB9651E1036C300164F8E /* Info.plist */,
 				78BCB96B1E10382300164F8E /* GoogleService-Info.plist */,
+				782C1BF21E24FAC100EB8190 /* FollowUsersTableViewController.swift */,
 			);
 			path = TwitterCanpath;
 			sourceTree = "<group>";
@@ -155,6 +160,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2PUA57V75P;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -246,6 +256,7 @@
 				78BCB9721E10451D00164F8E /* LogInViewController.swift in Sources */,
 				78DE81E31E22715D00710F20 /* MeViewController.swift in Sources */,
 				788515ED1E1E656C00121631 /* NewTweetViewController.swift in Sources */,
+				782C1BF31E24FAC100EB8190 /* FollowUsersTableViewController.swift in Sources */,
 				78BCB9701E1044FD00164F8E /* SignUpViewController.swift in Sources */,
 				788515EF1E1E778700121631 /* Tweet.swift in Sources */,
 				78D818CD1E1D00C900730C15 /* HomeViewTableViewCell.swift in Sources */,
@@ -377,6 +388,7 @@
 			baseConfigurationReference = 79C3AE142786DF2BF1B98B66 /* Pods-TwitterCanpath.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterCanpath/TwitterCanpath.entitlements;
 				DEVELOPMENT_TEAM = 2PUA57V75P;
 				INFOPLIST_FILE = TwitterCanpath/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -391,6 +403,7 @@
 			baseConfigurationReference = 6E439FD010368F54E73C8BF7 /* Pods-TwitterCanpath.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterCanpath/TwitterCanpath.entitlements;
 				DEVELOPMENT_TEAM = 2PUA57V75P;
 				INFOPLIST_FILE = TwitterCanpath/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
